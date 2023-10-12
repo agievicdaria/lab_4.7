@@ -33,16 +33,17 @@ int main() {
         do
         {
             n++;
-            R = 1.0 / ((2 * n + 1) * x * x); // коефіцієнт рекурентності
+            R = (2 * n - 1) / (2 * n * x * x + x * x);
             a *= R;
             S += a;
+            
         } while (abs(a) >= eps);
+        S *= 2;
 
         cout << "|" << setw(7) << setprecision(2) << x << " |"
              << setw(15) << setprecision(5) << log((x + 1) / (x - 1)) << " |"
              << setw(10) << setprecision(5) << S << " |"
              << setw(5) << n << " |"
-             << setw(5) << R << " |"
              << endl;
         x += dx;
     }
